@@ -14,3 +14,7 @@ Route::resource('', InscriptionController::class);
 //Route::get('connexion','InscriptionController@connexion')->name('connexion');
 
 Route::resource('connexion', ConnexionController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

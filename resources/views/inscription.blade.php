@@ -14,7 +14,10 @@
 <div class="wrapper">
         <form action="{{ route('store')}}" method="POST">
             @csrf
-            <div class="h5 font-weight-bold text-center mb-3">Registration</div>
+            <div class="h5 font-weight-bold text-center mb-3">Inscription</div>
+            @if (session('error'))
+            <div class="alert alert-success">{{ session('error') }}</div>
+            @endif
             <div class="form-group d-flex align-items-center">
                 <div class="icon"><span class="far fa-user"></span></div>
                 <input autocomplete="off" type="text" name="nom" class="form-control" placeholder="Entrez votre nom">
@@ -46,9 +49,8 @@
                 <input type="submit" class="btn btn-primary mb-3" value="Inscrire">
             </div>
             <div class="terms mb-2">
-                By clicking "Signup", you acknowledge that you have read the
-                <a href="#">Privacy Policy</a> and agree to the
-                <a href="#">Terms of Service</a>.
+               Vous avez déjà un compte?
+               <a href="connexion">Se connecter</a>
             </div>
             <div class="connect border-bottom mt-4 mb-4"></div>
             <ul class="p-0 social-links">

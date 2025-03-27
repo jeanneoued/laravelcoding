@@ -37,6 +37,10 @@ class InscriptionController extends Controller
         ]);
         $request['password'] = bcrypt($request['password']);
         Inscription::create($request->all());
+
+        return redirect('/connexion')->with('success', 'Inscription reussie');
+
+        return back()->with('error', 'Inscription reussie');
     }
 
     /**

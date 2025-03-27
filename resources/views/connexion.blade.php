@@ -12,9 +12,12 @@
     
 
 <div class="wrapper">
-        <form action="{{ route('index')}}" method="GET">
+        <form action="{{ route('connexion.store')}}" method="POST">
             @csrf
             <div class="h5 font-weight-bold text-center mb-3">Connexion</div>
+            @if (session('error'))
+            <div class="alert alert-success">{{ session('error') }}</div>
+            @endif
             <div class="form-group d-flex align-items-center">
                 <div class="icon"><span class="far fa-envelope"></span></div>
                 <input autocomplete="off" type="email" name="email" class="form-control" placeholder="Entrez votre Email">
@@ -33,11 +36,7 @@
             <div>
                 <input type="submit" class="btn btn-primary mb-3" value="Se connecter">
             </div>
-            <div class="terms mb-2">
-                By clicking "Signup", you acknowledge that you have read the
-                <a href="#">Privacy Policy</a> and agree to the
-                <a href="#">Terms of Service</a>.
-            </div>
+            
             <div class="connect border-bottom mt-4 mb-4"></div>
             <ul class="p-0 social-links">
                 <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
